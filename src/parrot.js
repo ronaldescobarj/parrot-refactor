@@ -17,7 +17,6 @@ export class Parrot {
 
     getSpeed() {
         switch (this.type) {
-
             case PARROT_TYPES.EUROPEAN:
                 return new European(this.numberOfCoconuts, this.voltage, this.isNailed).getSpeed();
             case PARROT_TYPES.AFRICAN:
@@ -46,10 +45,8 @@ class Norwegian_Blue extends Parrot{
     }
 
     getSpeed() {
-        return (this.isNailed) ? 0 : this.getBaseSpeedWithVoltage(this.voltage);
-    }
-    getBaseSpeedWithVoltage(voltage) {
-        return Math.min(24, voltage * this.baseSpeed);
+        let baseSpeedWithVoltage = Math.min(24, voltage * this.baseSpeed);
+        return (this.isNailed) ? 0 : baseSpeedWithVoltage;
     }
 }
 
